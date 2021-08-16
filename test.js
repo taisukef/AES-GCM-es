@@ -1,6 +1,6 @@
 import { AESGCM } from "./AESGCM.js";
 
-const someBytes = new TextEncoder().encode("hello!!");
+const someBytes = new TextEncoder().encode("や、hello!!");
 
 // generate a random key
 // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256

@@ -44,6 +44,9 @@ class AESGCM {
       tagLength: 128 // optional, defaults to 128 bits
     });
     cipher.update(forge.util.createBuffer(data));
+    //cipher.update(new forge.util.ByteBuffer(array2s(data)));
+    //console.log("data", data);
+    //cipher.update(forge.util.createBuffer(array2s(data)));
     cipher.finish();
     const encrypted = cipher.output;
     const tag = cipher.mode.tag;
@@ -65,7 +68,7 @@ class AESGCM {
       tagLength: 128, // optional, defaults to 128 bits
       tag: forge.util.createBuffer(tag) // authentication tag from encryption
     });
-    decipher.update(forge.util.createBuffer(data));
+    decipher.update(forge.util.createBuffer(array2s(data)));
     //decipher.update(encrypted);
     const pass = decipher.finish();
     // pass is false if there was a failure (eg: authentication tag didn't match)
@@ -74,8 +77,9 @@ class AESGCM {
     }
     // outputs decrypted hex
     //console.log(decipher.output.toHex());
+    return hex.toBin(decipher.output.toHex());
     //console.log(decipher.output.toString());
-    return s2array(decipher.output.toString());
+    //return s2array(decipher.output.toString());
   }
 }
 
