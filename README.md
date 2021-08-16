@@ -1,5 +1,9 @@
-# AES-GCM
- 
+# AES-GCM-es
+
+AES-GCM ES module for browsers and [Deno](https://deno.land/)
+
+## usage
+
 ```js
 import { AESGCM } from "https://taisukef.github.io/AES-GCM-es/AESGCM.js";
 
@@ -32,3 +36,7 @@ console.log(iv);
   console.log(new TextDecoder().decode(dec));
 }
 ```
+
+## dependencies
+
+- [taisukef/forge-es: A native implementation of TLS in Javascript and tools to write crypto-based and network-heavy webapps](https://github.com/taisukef/forge-es/)
